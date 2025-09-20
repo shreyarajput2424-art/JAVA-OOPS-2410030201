@@ -1,0 +1,33 @@
+class OuterClass {
+    int outerValue = 50;
+    static int staticValue = 100;
+
+    public void displayAbc() {
+        System.out.println("Outer value is " + outerValue);
+    }
+
+    // Static nested class
+    static class StaticNestedClass {
+        void display() {
+            // Can access only static members of outer class directly
+            System.out.println("Static Value: " + staticValue);
+
+            // Cannot access non-static (instance) members directly
+            // System.out.println(outerValue); // Not allowed
+        }
+    }
+}
+
+public class StaticClassDemo {
+    public static void main(String[] args) {
+        // Create object of static nested class (no need of OuterClass object)
+        OuterClass.StaticNestedClass nestedObj = new OuterClass.StaticNestedClass();
+        nestedObj.display();
+
+        // Create object of outer class to access instance members
+        OuterClass ob1 = new OuterClass();
+        ob1.displayAbc();
+
+        // ob1.display(); // not valid because display() belongs to StaticNestedClass
+    }
+}
