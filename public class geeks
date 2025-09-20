@@ -1,0 +1,31 @@
+public class Geeks {
+
+    // static variable
+    static int a = 40;
+
+    // instance variable
+    int b = 50;
+
+    // Instance method
+    void simpleDisplay() {
+        System.out.println(a); // static variable can be accessed
+        System.out.println(b); // instance variable
+    }
+
+    // Static method
+    static void staticDisplay() {
+        // Can only access static members directly
+        System.out.println(a);
+        // System.out.println(b); // ❌ not allowed here
+    }
+
+    // main method
+    public static void main(String[] args) {
+        Geeks obj = new Geeks();
+        obj.simpleDisplay(); // Calling instance method
+
+        // Calling static method
+        Geeks.staticDisplay();
+        staticDisplay(); // also works directly inside same class
+    }
+}
